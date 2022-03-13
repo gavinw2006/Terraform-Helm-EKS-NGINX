@@ -140,7 +140,7 @@ resource "aws_instance" "gw-dev-server" {
 	ami = "ami-087c17d1fe0178315"
 	instance_type = "t2.micro"
 	availability_zone = "us-east-1a"
-	key_name = "terraform-main-key"
+	key_name = "GW-AWS-Virginia"
 	user_data = <<-EOF
 		    #!/bin/bash
 		    sudo yum update -y
