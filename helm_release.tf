@@ -21,14 +21,14 @@ resource "helm_release" "jenkins" {
 
   set_sensitive {
     name  = "controller.adminUser"
-    value = ""
+    value = "admin"
   }
   set_sensitive {
     name = "controller.adminPassword"
-    value = ""
+    value = "Pa55w0rd!"
   }
   set_sensitive {
     name = "adminPassword"
-    value = ""
+    value = "Pa55w0rd!"
   }
 }
