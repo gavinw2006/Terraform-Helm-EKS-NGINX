@@ -15,16 +15,15 @@ provider "kubernetes" {
 
 module "my-cluster" {
   source          = "terraform-aws-modules/eks/aws"
+  version         = "17.24.0"
   cluster_name    = "dev-cluster"
   cluster_version = "1.21"
-  subnet_ids      = [aws_subnet.dev1-subnet.id,aws_subnet.dev2-subnet.id]
+  subnets      = [aws_subnet.dev1-subnet.id,aws_subnet.dev2-subnet.id]
   vpc_id          = aws_vpc.dev-vpc.id
 
 # If the instance is too small, you will not have enough available NICs to assign IP addresses to
 # all the pods on your instances
-   workers_group_defaults = {
-    root_volume_type = "gp2"
-  }
+ 
   worker_groups = [
     {
       name = "dev-worker-group-1"
