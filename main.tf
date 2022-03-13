@@ -152,9 +152,8 @@ resource "aws_instance" "gw-dev-server" {
 	network_interface {
 	  device_index = 0
 	  network_interface_id = aws_network_interface.dev-server-nic.id
-
+	}
 	tags = {
 	  Name = "dev-ubuntu"
 	}
-    }
 }
