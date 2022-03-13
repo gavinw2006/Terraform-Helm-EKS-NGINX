@@ -148,7 +148,7 @@ resource "aws_instance" "gw-dev-server" {
 		    sudo systemctl start httpd
 		    sudo bash -c 'echo this is a test > /var/www/html/index.html'
 		    EOF
-}
+
 	network_interface {
 	  device_index = 0
 	  network_interface_id = aws_network_interface.dev-server-nic.id
@@ -156,4 +156,5 @@ resource "aws_instance" "gw-dev-server" {
 	tags = {
 	  Name = "dev-ubuntu"
 	}
+    }
 }
