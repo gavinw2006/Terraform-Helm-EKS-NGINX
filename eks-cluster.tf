@@ -22,6 +22,9 @@ module "my-cluster" {
 
 # If the instance is too small, you will not have enough available NICs to assign IP addresses to
 # all the pods on your instances
+   workers_group_defaults = {
+    root_volume_type = "gp2"
+  }
   worker_groups = [
     {
       name = "dev-worker-group-1"
