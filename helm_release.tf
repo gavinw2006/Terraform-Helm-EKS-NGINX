@@ -19,16 +19,16 @@ resource "helm_release" "nginx-plus" {
 #    "${file("jenkins-values.yaml")}"
 #  ]
 
-  set_sensitive {
-    name  = "controller.adminUser"
-    value = "admin"
-  }
-  set_sensitive {
-    name = "controller.adminPassword"
-    value = "Pa55w0rd!"
-  }
-  set_sensitive {
-    name = "adminPassword"
-    value = "Pa55w0rd!"
-  }
+# set_sensitive {
+#    name  = "controller.adminUser"
+#   value = "admin"
+# }
+# set_sensitive {
+#   name = "controller.adminPassword"
+#   value = "Pa55w0rd!"
+# }
+# set_sensitive {
+#   name = "adminPassword"
+#   value = "Pa55w0rd!"
+# }
 }
