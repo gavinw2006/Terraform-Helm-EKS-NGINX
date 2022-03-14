@@ -15,20 +15,7 @@ resource "helm_release" "nginx-plus" {
   repository = "https://reg.foobz.com.au/chartrepo/cnf"
   chart      = "nginx-plus"
 
-#  values = [
-#    "${file("jenkins-values.yaml")}"
-#  ]
-
-# set_sensitive {
-#    name  = "controller.adminUser"
-#   value = "admin"
-# }
-# set_sensitive {
-#   name = "controller.adminPassword"
-#   value = "Pa55w0rd!"
-# }
-# set_sensitive {
-#   name = "adminPassword"
-#   value = "Pa55w0rd!"
-# }
+  values = [
+    "${file("nginx-plus-value.yaml")}"
+  ]
 }
