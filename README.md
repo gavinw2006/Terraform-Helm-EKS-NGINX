@@ -11,7 +11,7 @@ of them. In this example, I'm deploying NGINX on EKS. It takes about 15 minutes 
 * kubectl installed on a host to deploy to the cluster
 
 ### Deployment Instructions
-* Install Terraform
+* Install Terraform or login to Terraform Cloud
 * Clone this repository to your local workstation/laptop or run it via Terraform Cloud
 * Run a ```terraform init``` to grab providers and modules
 * Run ```aws_configure``` and establish your credentials
