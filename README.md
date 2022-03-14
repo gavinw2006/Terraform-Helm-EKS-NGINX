@@ -5,22 +5,21 @@ of them. In this example, I'm deploying NGINX on EKS. It takes about 15 minutes 
 
 ### Pre-requisites
 
-* Terraform installed
+* Terraform installed on local workstation/laptop (or login to Terraform Cloud)
 * AWS cli installed on a host to connect to the cluster
 * AWS credentials configured
 * kubectl installed on a host to deploy to the cluster
 
 ### Deployment Instructions
 * Install Terraform
-* Clone this repository
-* Edit or remove the ```set_sensitive``` arguments in ```helm_release.tf``` if you would like to
+* Clone this repository to your local workstation/laptop or run it via Terraform Cloud
 * Run a ```terraform init``` to grab providers and modules
 * Run ```aws_configure``` and establish your credentials
 * Run a ```terraform_apply``` and wait 10 - 15 minutes. Note: If it fails for HTTP timeout while waiting to apply the Helm chart, retry ```terraform_apply```
 * Run ```aws eks --region ap-southeast-2 update-kubeconfig --name dev-cluster``` to add the cluster context to your kubeconfig
 * Run ```kubectl get pods``` and ```kubectl get svc``` to ensure NGINX deployed as expected
 * Run ```kubectl get svc``` again to grab the AWS created DNS address
-* Go to your browser and navigate to ```http://<dns-address>``` Note: This may take 3 - 5 minutes to resolve while waiting for Jenkins to fully initialize. 
+* Go to your browser and navigate to ```http://<dns-address>``` Note: This may take 3 - 5 minutes to resolve while waiting for NGINX to fully initialize. 
 
 
 ### Connecting
