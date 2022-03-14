@@ -10,8 +10,8 @@ provider "helm" {
   }
 }
 
-resource "helm_release" "NGINX-Plus" {
-  name       = "NGINX-Plus"
+resource "helm_release" "nginx-plus" {
+  name       = "nginx-plus"
   repository = "https://reg.foobz.com.au/chartrepo/cnf"
   chart      = "nginx-plus"
 
