@@ -10,14 +10,14 @@ provider "helm" {
   }
 }
 
-resource "helm_release" "jenkins" {
-  name       = "jenkins"
-  repository = "https://charts.jenkins.io"
-  chart      = "jenkins"
+resource "helm_release" "NGINX-Plus" {
+  name       = "NGINX-Plus"
+  repository = "https://reg.foobz.com.au/chartrepo/cnf"
+  chart      = "nginx-plus"
 
-  values = [
-    "${file("jenkins-values.yaml")}"
-  ]
+#  values = [
+#    "${file("jenkins-values.yaml")}"
+#  ]
 
   set_sensitive {
     name  = "controller.adminUser"
