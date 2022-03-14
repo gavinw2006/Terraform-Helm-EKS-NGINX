@@ -1,5 +1,5 @@
 provider "aws" {
-	region = "us-east-1"
+	region = "ap-southeast-2"
 }
 
 # Create VPC
@@ -15,7 +15,7 @@ resource "aws_vpc" "dev-vpc" {
 resource "aws_subnet" "dev1-subnet" {
   vpc_id     = aws_vpc.dev-vpc.id
   cidr_block = "10.0.1.0/24"
-  availability_zone = "us-east-1a"
+  availability_zone = "ap-southeast-2a"
   map_public_ip_on_launch = true
 
   tags = {
@@ -26,7 +26,7 @@ resource "aws_subnet" "dev1-subnet" {
 resource "aws_subnet" "dev2-subnet" {
   vpc_id     = aws_vpc.dev-vpc.id
   cidr_block = "10.0.2.0/24"
-  availability_zone = "us-east-1b"
+  availability_zone = "ap-southeast-2b"
   map_public_ip_on_launch = true
 
   tags = {
@@ -136,24 +136,24 @@ resource "aws_eip" "one" {
 
 # Commented out unless needed. Not needed for EKS cluster deployment
 # Create Server
-resource "aws_instance" "gw-dev-server" {
-	ami = "ami-087c17d1fe0178315"
-	instance_type = "t2.micro"
-	availability_zone = "us-east-1a"
-	key_name = "GW-AWS-Virginia"
-	user_data = <<-EOF
-		    #!/bin/bash
-		    sudo yum update -y
-		    sudo yum install httpd -y
-		    sudo systemctl start httpd
-		    sudo bash -c 'echo this is a test > /var/www/html/index.html'
-		    EOF
+# resource "aws_instance" "gw-dev-server" {
+#	ami = "ami-087c17d1fe0178315"
+#	instance_type = "t2.micro"
+#	availability_zone = "ap-southeast-2a"
+#	key_name = "GW-AWS-SYDNEY"
+#	user_data = <<-EOF
+#		    #!/bin/bash
+#		    sudo yum update -y
+#		    sudo yum install httpd -y
+#		    sudo systemctl start httpd
+#		    sudo bash -c 'echo this is a test > /var/www/html/index.html'
+#		    EOF
 
-	network_interface {
-	  device_index = 0
-	  network_interface_id = aws_network_interface.dev-server-nic.id
-	}
-	tags = {
-	  Name = "dev-ubuntu"
-	}
-}
+#	network_interface {
+#	  device_index = 0
+#	  network_interface_id = aws_network_interface.dev-server-nic.id
+#	}
+#	tags = {
+#	  Name = "dev-ubuntu"
+#	}
+#}
