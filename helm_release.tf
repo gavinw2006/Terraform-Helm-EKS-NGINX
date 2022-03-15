@@ -19,3 +19,13 @@ resource "helm_release" "nginx-plus" {
     "${file("nginx-plus-value.yaml")}"
   ]
 }
+
+resource "helm_release" "f5demo-app" {
+  name       = "f5demo-app"
+  repository = "https://reg.foobz.com.au/chartrepo/cnf"
+  chart      = "f5demo"
+
+  values = [
+    "${file("f5demo-value.yaml")}"
+  ]
+}
