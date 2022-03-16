@@ -28,7 +28,18 @@ module "my-cluster" {
     {
       name = "dev-worker-group-1"
       instance_type = "t3.medium"
-      asg_min_size = 2
+      asg_min_size = 1
+      asg_desired_capacity = 2
+      asg_max_size  = 3
+      additional_security_group_ids = [aws_security_group.allow-web-traffic.id]
+    }
+  ]
+  
+  worker_groups = [
+    {
+      name = "dev-worker-group-2"
+      instance_type = "t3.medium"
+      asg_min_size = 1
       asg_desired_capacity = 2
       asg_max_size  = 3
       additional_security_group_ids = [aws_security_group.allow-web-traffic.id]
