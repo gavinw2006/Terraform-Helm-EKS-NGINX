@@ -24,20 +24,9 @@ module "my-cluster" {
 # If the instance is too small, you will not have enough available NICs to assign IP addresses to
 # all the pods on your instances
  
-  worker_groups-1 = [
+  worker_groups = [
     {
-      name = "dev-worker-group-1"
-      instance_type = "t3.medium"
-      asg_min_size = 1
-      asg_desired_capacity = 2
-      asg_max_size  = 3
-      additional_security_group_ids = [aws_security_group.allow-web-traffic.id]
-    }
-  ]
-  
-  worker_groups-2 = [
-    {
-      name = "dev-worker-group-2"
+      name = "dev-worker-group"
       instance_type = "t3.medium"
       asg_min_size = 1
       asg_desired_capacity = 2
