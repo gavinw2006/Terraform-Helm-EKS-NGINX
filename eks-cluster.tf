@@ -24,7 +24,7 @@ module "my-cluster" {
 # If the instance is too small, you will not have enough available NICs to assign IP addresses to
 # all the pods on your instances
  
-  worker_groups = [
+  worker_groups-1 = [
     {
       name = "dev-worker-group-1"
       instance_type = "t3.medium"
@@ -35,7 +35,7 @@ module "my-cluster" {
     }
   ]
   
-  worker_groups = [
+  worker_groups-2 = [
     {
       name = "dev-worker-group-2"
       instance_type = "t3.medium"
