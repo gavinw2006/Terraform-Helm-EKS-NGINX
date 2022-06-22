@@ -1,7 +1,7 @@
 # DEPLOY HELM CHARTS LIKE NGINX AND EKS USING TERRAFORM :space_invader:
 
 Tired of creating clusters manually just to try something out for a few minutes? Then run this. Need some apps on that cluster really fast? Use Terraforms Helm Provider on top of their kubernetes provider to quickly deploy EKS clusters with your apps on top
-of them. In this example, I'm deploying NGINX on EKS. It takes about 15 minutes from start to finish and minimal work. 
+of them. In this example, I'm deploying NGINX via Helm provider on EKS. It takes about 15 minutes from start to finish and minimal work. 
 
 ### Pre-requisites
 
